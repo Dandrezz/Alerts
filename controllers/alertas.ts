@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import axios from "axios";
 
-const bot_token = '1471823757:AAGSVXAzLXHqgeuexTXopAIiwdA3bUspE6s'
-const bot_chatID = '1087080529'
+const bot_token = process.env.BOT_TOKEN || ''
+const bot_chatID = process.env.BOT_CHATID || ''
 
 const sendMessageTelegram = async(message: string):Promise<boolean> => {
     const send_text = message = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + message;
