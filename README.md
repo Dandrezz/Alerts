@@ -6,10 +6,8 @@ Esta API Rest utiliza los servicios del API de Telegram para enviar alertas de e
 </ul>
 Para esto en necesario ingresar el puerto en donde se ejecutara el programa, las credenciales de un bot de Telegram y el ID de Usuario al que se enviara las alertas en un archivo <strong>.env</strong>.
 
-## Blocks of code
-
-  ```javascript
-  PORT={PORT}
-  BOT_TOKEN={TOKEN}
-  BOT_CHATID={CHATID}
-  ```
+```javascript
+PORT={PORT}
+BOT_TOKEN={TOKEN}
+BOT_CHATID={CHATID}
+```
