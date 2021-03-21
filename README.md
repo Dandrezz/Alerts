@@ -9,4 +9,4 @@ Para esto en necesario ingresar el puerto en donde se ejecutara el programa, las
 PORT={PORT}
 BOT_TOKEN={TOKEN}
 BOT_CHATID={CHATID}
-```js
+```
