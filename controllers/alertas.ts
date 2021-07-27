@@ -15,8 +15,13 @@ const sendMessageTelegram = async(message: string):Promise<boolean> => {
 export const sendMessagePrometheus = async(req: Request, res: Response) => {
     const alerts = req.body.alerts;
     for( let alert of alerts ){
-        const { alertname, instance, job, startsAt } = alert.labels;
-        const message = `Alert name: ${alertname}\nProblem started at ${startsAt}\nInstance: ${instance}\nJob: ${job}`;
+        let message = "";
+        for (const [key, value] of Object.entries(alert.labels)) {
+            message += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}\n`;
+        }
+        message +=  `Problem started at ${alert.startsAt}\n`+
+                    `Status: ${alert.status}`;
+
         const validator = await sendMessageTelegram(message);
         if(!validator){
             return res.status(500).json({
